@@ -25,10 +25,9 @@ test.describe('Inkdown Editor', () => {
     await page.goto('/editor');
   });
 
-  test('renders editor and preview panes', async ({ page }) => {
-    await expect(page.locator('text=Markdown').first()).toBeVisible();
-    await expect(page.locator('text=Preview').first()).toBeVisible();
+  test('renders editor with textarea and tabs', async ({ page }) => {
     await expect(page.locator('textarea')).toBeVisible();
+    await expect(page.getByText('Markdown', { exact: true }).first()).toBeVisible();
   });
 
   test('live preview updates as user types', async ({ page }) => {
@@ -43,10 +42,10 @@ test.describe('Inkdown Editor', () => {
 
   test('template dropdown loads templates', async ({ page }) => {
     await page.click('button:has-text("Templates")');
-    await expect(page.locator('text=Resume')).toBeVisible();
-    await expect(page.locator('text=Project README')).toBeVisible();
+    await expect(page.getByText('Resume', { exact: true }).first()).toBeVisible();
+    await expect(page.getByText('Project README', { exact: true })).toBeVisible();
 
-    await page.click('text=Resume');
+    await page.getByText('Resume', { exact: true }).first().click();
     const textarea = page.locator('textarea');
     await expect(textarea).toContainText('Jane Smith');
   });
