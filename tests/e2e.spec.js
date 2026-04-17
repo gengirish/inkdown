@@ -1,12 +1,28 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Inkdown', () => {
-  test.beforeEach(async ({ page }) => {
+test.describe('Inkdown Landing', () => {
+  test('has correct title and hero', async ({ page }) => {
     await page.goto('/');
+    await expect(page).toHaveTitle(/Inkdown/);
+    await expect(page.locator('h1')).toContainText('Beautiful PDFs from Markdown');
   });
 
-  test('has correct title', async ({ page }) => {
-    await expect(page).toHaveTitle(/Inkdown/);
+  test('landing links to editor', async ({ page }) => {
+    await page.goto('/');
+    const editorLink = page.locator('a:has-text("Start Writing")');
+    await expect(editorLink).toBeVisible();
+    await expect(editorLink).toHaveAttribute('href', '/editor');
+  });
+
+  test('landing links to IntelliForge AI', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('text=IntelliForge AI').first()).toBeVisible();
+  });
+});
+
+test.describe('Inkdown Editor', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/editor');
   });
 
   test('renders editor and preview panes', async ({ page }) => {
@@ -43,7 +59,7 @@ test.describe('Inkdown', () => {
 
   test('export dialog opens and has settings', async ({ page }) => {
     await page.click('button:has-text("Export PDF")');
-    await expect(page.locator('text=Export PDF').nth(1)).toBeVisible();
+    await expect(page.locator('text=Configure your PDF export')).toBeVisible();
     await expect(page.locator('#filename')).toBeVisible();
     await expect(page.locator('#page-size')).toBeVisible();
     await expect(page.locator('#margin')).toBeVisible();

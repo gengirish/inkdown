@@ -238,7 +238,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex cursor-pointer items-center gap-2 rounded-lg border-2 border-border px-8 py-3 text-sm font-semibold text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Need a custom AI tool? Talk to us
+                Need a custom AI tool? Let&apos;s talk
                 <ExternalLink className="h-3.5 w-3.5" />
               </Link>
             </div>

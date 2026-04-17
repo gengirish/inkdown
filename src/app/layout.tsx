@@ -45,8 +45,10 @@ export const metadata: Metadata = {
     title: 'Inkdown — Beautiful PDFs from Markdown',
     description: 'Write in Markdown. Export stunning PDFs. Built by IntelliForge AI — free, fast, and open source.',
     type: 'website',
+    url: 'https://inkdown.intelliforge.tech',
     siteName: 'IntelliForge AI',
   },
+  metadataBase: new URL('https://inkdown.intelliforge.tech'),
 }
 
 export const viewport: Viewport = {

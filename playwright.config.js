@@ -5,7 +5,7 @@ module.exports = defineConfig({
   timeout: 30000,
   retries: 1,
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    baseURL: process.env.BASE_URL || 'https://inkdown.intelliforge.tech',
     headless: true,
   },
   webServer: process.env.CI

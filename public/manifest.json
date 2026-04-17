@@ -3,6 +3,8 @@
   "short_name": "Inkdown",
   "description": "Write Markdown with live preview. Export stunning PDFs. Built by IntelliForge AI.",
   "start_url": "/editor",
+  "id": "inkdown.intelliforge.tech",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0F172A",
   "theme_color": "#22C55E",

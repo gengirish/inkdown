@@ -91,6 +91,8 @@ npm start
 
 ## Deployment
 
+**Live at [inkdown.intelliforge.tech](https://inkdown.intelliforge.tech)**
+
 Deployed on Vercel with dual builders (Next.js + Python serverless):
 
 ```bash
